@@ -11,9 +11,19 @@ class MyProfileCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Image.asset('assets/accountInactive.png'), //image widget to show asset image
+              // Image.network(
+              //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpWIUTEbl3Km2gu10Jsib39To4S4IYsn8QhA&usqp=CAU',
+              //   height: 50,
+              //   width: 50,
+              // ), //image widget to show network image
               const CircleAvatar(
                 radius: 56,
                 backgroundColor: Colors.white,
+                // backgroundImage: AssetImage('assets/accountInactive.png'),
+                backgroundImage: NetworkImage(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa6quI_3ucahHwJ26ZQd2ijG0jfcKkMSgURA&usqp=CAU',
+                ),
               ),
               const SizedBox(
                 height: 16,
@@ -22,6 +32,7 @@ class MyProfileCard extends StatelessWidget {
                 "Syed Ilhan Shah",
                 style: TextStyle(
                     fontSize: 32,
+                    fontFamily: "Pacifico",
                     color: Colors.white,
                     fontWeight: FontWeight.w800),
               ),
@@ -32,6 +43,7 @@ class MyProfileCard extends StatelessWidget {
                 "Flutter Instructor",
                 style: TextStyle(
                     fontSize: 20,
+                    fontFamily: "Poppins",
                     color: Colors.white,
                     fontWeight: FontWeight.w500),
               ),
@@ -49,8 +61,8 @@ class MyProfileCard extends StatelessWidget {
               Container(
                 height: 56,
                 width: double.maxFinite,
-                margin: EdgeInsets.only(left: 12, right: 12),
-                padding: EdgeInsets.only(left: 16, right: 16),
+                margin: const EdgeInsets.only(left: 12, right: 12),
+                padding: const EdgeInsets.only(left: 16, right: 16),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(4)),
@@ -79,8 +91,8 @@ class MyProfileCard extends StatelessWidget {
               Container(
                 height: 56,
                 width: double.maxFinite,
-                margin: EdgeInsets.only(left: 12, right: 12),
-                padding: EdgeInsets.only(left: 16, right: 16),
+                margin: const EdgeInsets.only(left: 12, right: 12),
+                padding: const EdgeInsets.only(left: 16, right: 16),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(4)),
