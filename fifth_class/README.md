@@ -8,4 +8,4 @@ Topics learned today
 - ListView.separated(...)
 
 Screen implemetation:
-(!alt_text)[https://github.com/Ilhan-brandverse-dev/bq-flutter-projects/blob/main/fifth_class/task.png]
+![alt_text](https://github.com/Ilhan-brandverse-dev/bq-flutter-projects/blob/main/fifth_class/task.png)
