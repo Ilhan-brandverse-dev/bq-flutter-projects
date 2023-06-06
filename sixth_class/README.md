@@ -1,16 +1,9 @@
-# sixth_class
+# Sixth Class
+Topics covered:
+- GridView
+- Handling Lists in Column
+- Buttons with cutomization and passing callbacks
+- Making Custom widgets tappable by GestureDetector
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Activity done:
+![alt_text](https://github.com/Ilhan-brandverse-dev/bq-flutter-projects/blob/main/sixth_class/Screenshot%20from%202023-06-06%2009-28-17.png)
