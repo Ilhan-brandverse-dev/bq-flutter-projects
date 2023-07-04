@@ -6,3 +6,4 @@ Topics learned
 - Conditional rendering with ternary operators
 - Enums
 - How to make use of model classes
+![alt_text](https://github.com/Ilhan-brandverse-dev/bq-flutter-projects/blob/main/tenth_class/screen.mp4)
