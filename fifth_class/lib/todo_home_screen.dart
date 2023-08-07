@@ -1,4 +1,9 @@
+import 'package:fifth_class/commons/todo_list_tile.dart';
+import 'package:fifth_class/models/todo_model.dart';
+import 'package:fifth_class/providers/to_do_provider.dart';
+import 'package:fifth_class/todo_input_bottomsheet.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ToDoHomeScreen extends StatefulWidget {
   const ToDoHomeScreen({super.key});
@@ -46,63 +51,52 @@ class _ToDoHomeScreenState extends State<ToDoHomeScreen> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
-                  child: ListView.separated(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    itemCount: 12,
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 16),
-                    itemBuilder: (context, index) {
-                      return Container(
-                        height: 90,
-                        width: double.maxFinite,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 12),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                            boxShadow: const [
-                              BoxShadow(
-                                  color: Colors.grey,
-                                  offset: Offset(1, 2),
-                                  blurRadius: 0.1,
-                                  spreadRadius: 1)
-                            ]),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                Text(
-                                  'Meeting Client',
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                Text(
-                                  '7:30pm',
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.grey),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 12,
-                            ),
-                            const Text(
-                              "Description here",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.blue),
+                  child: Consumer<ToDoProvider>(
+                    builder: (_, toDoProvider, __) {
+                      return toDoProvider.toDoList.isNotEmpty
+                          ? ListView.separated(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 12),
+                              itemCount: toDoProvider.toDoList.length,
+                              separatorBuilder: (context, index) =>
+                                  const SizedBox(height: 16),
+                              itemBuilder: (context, index) {
+                                return ToDoListTile(
+                                    modelData: toDoProvider.toDoList[index]);
+                              },
                             )
-                          ],
-                        ),
-                      );
+                          : const Center(
+                              child: Text(
+                                "No TODO's added",
+                                style: TextStyle(
+                                    fontSize: 24,
+                                    color: Colors.black26,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
                     },
                   )),
-            )
+            ),
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showToDoInputBottomsheet();
+        },
+        child: const Icon(Icons.add),
+      ),
     );
+  }
+
+  void showToDoInputBottomsheet() {
+    showModalBottomSheet(
+        context: context,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+        builder: (context) {
+          return const ToDoInputBottomsheet();
+        });
   }
 }
