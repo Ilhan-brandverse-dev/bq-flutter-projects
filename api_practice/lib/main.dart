@@ -56,16 +56,20 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: usersList!.isNotEmpty
-          ? ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-              itemBuilder: (context, index) =>
-                  UserTile(userData: usersList![index]),
-              separatorBuilder: (context, index) => const SizedBox(height: 12),
-              itemCount: usersList!.length)
-          : const Center(
-              child: Text("No users found"),
-            ),
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : usersList!.isNotEmpty
+              ? ListView.separated(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  itemBuilder: (context, index) =>
+                      UserTile(userData: usersList![index]),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 12),
+                  itemCount: usersList!.length)
+              : const Center(
+                  child: Text("No users found"),
+                ),
     );
   }
 }
